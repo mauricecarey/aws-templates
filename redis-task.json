@@ -1,0 +1,17 @@
+{
+    "ContainerDefinitions": [
+        {
+            "Name": "redis",
+            "Image": "redis:3",
+            "Cpu": 100,
+            "Memory": 200,
+            "PortMappings": [
+                {
+                    "ContainerPort": 6379
+                }
+            ],
+            "Essential": true
+        }
+    ],
+    "Family": "redis"
+}
