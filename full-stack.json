@@ -728,7 +728,7 @@
                         },
                         "/etc/postgres/register-postgres-service.sh": {
                           "content": {
-                            "Fn:Join": [
+                            "Fn::Join": [
                               "\n",
                               [
                                 "#!/bin/env bash",
@@ -858,12 +858,12 @@
                         },
                         "02_register_postgres_service_in_consul": {
                           "command": {
-                            "Fn:Join": [
+                            "Fn::Join": [
                               " ",
                               [
                                 "/etc/postgres/register-postgres-service.sh",
-                                { "Fn:GetAtt": ["DBInstance", "Endpoint.Address"] },
-                                { "Fn:GetAtt": ["DBInstance", "Endpoint.Port"] }
+                                { "Fn::GetAtt": ["DBInstance", "Endpoint.Address"] },
+                                { "Fn::GetAtt": ["DBInstance", "Endpoint.Port"] }
                               ]
                             ]
                           }
