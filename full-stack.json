@@ -1519,6 +1519,12 @@
             ]
         }
       },
+      "EcsLoadBalancerName": {
+        "Description": "URL of load balancer.",
+        "Value": {
+          "Fn::GetAtt": [ "EcsLoadBalancer", "DNSName" ]
+        }
+      },
       "EcsInstanceAsgName": {
           "Description": "Auto Scaling Group Name for ECS Instances",
           "Value": {
