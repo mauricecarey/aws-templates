@@ -1265,6 +1265,9 @@
                 },
                 {
                     "Ref": "CommonSecurityGroup"
+                },
+                {
+                  "Ref": "EcsInstanceSecurityGroup"
                 }
             ],
             "KeyName": {
