@@ -1325,7 +1325,7 @@
                 "Target" : "HTTP:8080/health",
                 "HealthyThreshold" : "3",
                 "UnhealthyThreshold" : "5",
-                "Interval" : "60",
+                "Interval" : "30",
                 "Timeout" : "5"
             },
             "SecurityGroups": [
