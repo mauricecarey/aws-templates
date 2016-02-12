@@ -638,7 +638,11 @@
                                     "ecs:DiscoverPollEndpoint",
                                     "ecs:Poll",
                                     "ecs:RegisterContainerInstance",
-                                    "ecs:Submit*"
+                                    "ecs:Submit*",
+                                    "ecr:GetAuthorizationToken",
+                                    "ecr:GetDownloadUrlForLayer",
+                                    "ecr:BatchGetImage",
+                                    "ecr:BatchCheckLayerAvailability"
                                 ],
                                 "Resource": "*"
                             },
