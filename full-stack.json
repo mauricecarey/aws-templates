@@ -1416,7 +1416,7 @@
       "Type": "AWS::ECS::Service",
       "Properties" : {
         "Cluster": { "Ref": "EcsCluster" },
-        "DesiredCount": "2",
+        "DesiredCount": "1",
         "TaskDefinition" : { "Ref": "RedisTaskDef" }
       }
     },
