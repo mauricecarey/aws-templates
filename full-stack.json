@@ -1530,6 +1530,12 @@
           "Value": {
               "Ref": "EcsInstanceAsg"
           }
+      },
+      "EcsClusterName": {
+        "Description": "ECS Cluster Name",
+        "Value": {
+          "Ref": "EcsCluster"
+        }
       }
   }
 }
