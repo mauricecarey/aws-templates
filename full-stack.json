@@ -1353,6 +1353,11 @@
             "LaunchConfigurationName": {
                 "Ref": "EcsInstanceLc"
             },
+            "LoadBalancerNames": [
+              {
+                "Ref": "EcsLoadBalancer"
+              }
+            ],
             "MinSize": {
                 "Ref": "ClusterSize"
             },
