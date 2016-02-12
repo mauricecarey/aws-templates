@@ -1312,6 +1312,31 @@
             }
         }
     },
+    "EcsLoadBalancer" : {
+        "Type" : "AWS::ElasticLoadBalancing::LoadBalancer",
+        "Properties" : {
+            "Subnets" : [ { "Ref": "SUB1" }, { "Ref": "SUB2" } ],
+            "Listeners" : [ {
+                "LoadBalancerPort" : "80",
+                "InstancePort" : "8080",
+                "Protocol" : "HTTP"
+            } ],
+            "HealthCheck" : {
+                "Target" : "HTTP:8080/health",
+                "HealthyThreshold" : "3",
+                "UnhealthyThreshold" : "5",
+                "Interval" : "60",
+                "Timeout" : "5"
+            },
+            "SecurityGroups": [
+              { "Ref": "CommonSecurityGroup" },
+              { "Ref": "EcsInstanceSecurityGroup" }
+            ]
+        },
+        "DependsOn": [
+          "AttachGateway"
+        ]
+    },
     "EcsInstanceAsg": {
         "Type": "AWS::AutoScaling::AutoScalingGroup",
         "Properties": {
