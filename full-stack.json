@@ -15,13 +15,13 @@
       },
       "EcsNodeAmiMap": {
           "eu-west-1": {
-              "AMI": "ami-ed7c149a"
+              "AMI": "ami-bdafdbdd"
           },
           "us-east-1": {
-              "AMI": "ami-d0b9acb8"
+              "AMI": "ami-cb2305a1"
           },
           "us-west-2": {
-              "AMI": "ami-6b88b95b"
+              "AMI": "ami-ec75908c"
           }
       },
       "DcMap": {
