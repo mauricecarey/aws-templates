@@ -152,9 +152,7 @@
         "Type": "String",
         "NoEcho": "true",
         "Description": "The HTTP password for access to the Consul GUI",
-        "AllowedPattern": "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})",
-        "ConstraintDescription": "Entry that must contains one digit from 0-9, one lowercase characters, one uppercase characters, one special symbols in the list \"@#$%\" and between 6 and 20 characters in length.",
-        "Default": "Pa$$w0rd"
+        "Default": "password"
     },
     "DBName": {
       "Type": "String",
