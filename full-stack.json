@@ -1069,7 +1069,7 @@
                                 "Fn::Join": [
                                     " ",
                                     [
-                                        "OPTIONS='--dns 172.17.42.1 --dns",
+                                        "OPTIONS='--dns 172.17.0.1 --dns",
                                         {
                                             "Ref": "AmazonDnsIp"
                                         },
