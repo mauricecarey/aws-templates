@@ -647,6 +647,14 @@
                     "CidrIp": {
                         "Ref": "VpcCidr"
                     }
+                },
+                {
+                  "IpProtocol": "tcp",
+                  "FromPort": "8080",
+                  "ToPort": "8080",
+                  "SourceSecurityGroupId": {
+                    "Ref": "EcsLoadBalancerSecurityGroup"
+                  }
                 }
             ],
             "Tags": [
@@ -658,6 +666,47 @@
                         [
                           { "Ref": "AWS::StackName" },
                           "EcsInstanceSG"
+                        ]
+                      ]
+                    }
+                }
+            ]
+        }
+    },
+    "EcsLoadBalancerSecurityGroup": {
+        "Type": "AWS::EC2::SecurityGroup",
+        "Properties": {
+            "GroupDescription": "ECS Load Balancer Security Group",
+            "VpcId": {
+                "Ref": "VPC"
+            },
+            "SecurityGroupIngress": [
+                {
+                    "IpProtocol": "tcp",
+                    "FromPort": "80",
+                    "ToPort": "80",
+                    "CidrIp": "0.0.0.0/0"
+                }
+            ],
+            "SecurityGroupEgress": [
+                {
+                    "IpProtocol": "tcp",
+                    "FromPort": "8080",
+                    "ToPort": "8080",
+                    "CidrIp": {
+                        "Ref": "VpcCidr"
+                    }
+                }
+            ],
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": {
+                      "Fn::Join": [
+                        "-",
+                        [
+                          { "Ref": "AWS::StackName" },
+                          "EcsLBSG"
                         ]
                       ]
                     }
@@ -1327,8 +1376,7 @@
                 "Timeout" : "5"
             },
             "SecurityGroups": [
-              { "Ref": "CommonSecurityGroup" },
-              { "Ref": "EcsInstanceSecurityGroup" }
+              { "Ref": "EcsLoadBalancerSecurityGroup" }
             ]
         },
         "DependsOn": [
