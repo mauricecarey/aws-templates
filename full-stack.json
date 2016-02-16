@@ -1564,7 +1564,7 @@
             ]
         }
       },
-      "EcsLoadBalancerName": {
+      "EcsLoadBalancerUrl": {
         "Description": "URL of load balancer.",
         "Value": {
           "Fn::GetAtt": [ "EcsLoadBalancer", "DNSName" ]
