@@ -1389,35 +1389,6 @@
             ]
         }
     },
-    "RedisTaskDef": {
-      "Type": "AWS::ECS::TaskDefinition",
-      "Properties": {
-        "ContainerDefinitions" : [
-          {
-            "Name": "redis",
-            "Image": "redis:3",
-            "Cpu": 100,
-            "Memory": 200,
-            "PortMappings": [
-              {
-                "ContainerPort": 6379,
-                "HostPort": 6379
-              }
-            ],
-            "Essential": true
-          }
-        ],
-        "Volumes": []
-      }
-    },
-    "RedisService": {
-      "Type": "AWS::ECS::Service",
-      "Properties" : {
-        "Cluster": { "Ref": "EcsCluster" },
-        "DesiredCount": "1",
-        "TaskDefinition" : { "Ref": "RedisTaskDef" }
-      }
-    },
     "DBSecurityGroup": {
       "Type": "AWS::RDS::DBSecurityGroup",
       "Properties" : {
