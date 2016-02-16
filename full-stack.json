@@ -801,6 +801,7 @@
                 "Install": {
                     "packages": {
                         "yum": {
+                            "awslogs": [],
                             "git": [],
                             "docker": [],
                             "nginx": [],
@@ -878,6 +879,10 @@
                                 ]
                             },
                             "docker": {
+                                "enabled": "true",
+                                "ensureRunning": "true"
+                            },
+                            "awslogs": {
                                 "enabled": "true",
                                 "ensureRunning": "true"
                             }
@@ -1110,6 +1115,11 @@
                     ]
                 },
                 "Install": {
+                    "packages": {
+                        "yum": {
+                            "awslogs": []
+                        }
+                    },
                     "files": {
                         "/etc/sysconfig/docker": {
                             "content": {
@@ -1160,6 +1170,14 @@
                             "mode": "000755",
                             "owner": "root",
                             "group": "root"
+                        }
+                    },
+                    "services": {
+                        "sysvinit": {
+                            "awslogs": {
+                                "enabled": "true",
+                                "ensureRunning": "true"
+                            }
                         }
                     }
                 },
@@ -1231,6 +1249,16 @@
                                     "",
                                     [
                                         "docker pull gliderlabs/registrator"
+                                    ]
+                                ]
+                            }
+                        },
+                        "08_start_awslogs_if_not_running": {
+                            "command": {
+                                "Fn::Join": [
+                                    "",
+                                    [
+                                        "[[ $(/sbin/status awslogs) =~ \"running\" ]] || /sbin/service awslogs start"
                                     ]
                                 ]
                             }
