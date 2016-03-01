@@ -1,0 +1,18 @@
+{
+    "containerDefinitions": [
+        {
+            "name": "hello-world",
+            "image": "295912319201.dkr.ecr.us-east-1.amazonaws.com/hello-world:latest",
+            "cpu": 100,
+            "memory": 200,
+            "portMappings": [
+                {
+                    "containerPort": 8080,
+                    "hostPort": 8080
+                }
+            ],
+            "essential": true
+        }
+    ],
+    "family": "hello-world"
+}
