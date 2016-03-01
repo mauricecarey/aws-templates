@@ -11,7 +11,10 @@
                     "hostPort": 8080
                 }
             ],
-            "essential": true
+            "essential": true,
+            "logConfiguration": {
+                "logDriver": "syslog"
+            }
         }
     ],
     "family": "micro-services-hello-world-sb"
