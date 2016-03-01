@@ -673,6 +673,57 @@
             ]
         }
     },
+    "EcsInstanceSecurityGroupIngressTcpWellKnown": {
+        "DependsOn": [
+            "EcsInstanceSecurityGroup"
+        ],
+        "Type": "AWS::EC2::SecurityGroupIngress",
+        "Properties": {
+            "GroupId": {
+                "Ref": "EcsInstanceSecurityGroup"
+            },
+            "IpProtocol": "tcp",
+            "FromPort": "1",
+            "ToPort": "1023",
+            "SourceSecurityGroupId": {
+                "Ref": "EcsInstanceSecurityGroup"
+            }
+        }
+    },
+    "EcsInstanceSecurityGroupIngressTcpRegistered": {
+        "DependsOn": [
+            "EcsInstanceSecurityGroup"
+        ],
+        "Type": "AWS::EC2::SecurityGroupIngress",
+        "Properties": {
+            "GroupId": {
+                "Ref": "EcsInstanceSecurityGroup"
+            },
+            "IpProtocol": "tcp",
+            "FromPort": "1024",
+            "ToPort": "49151",
+            "SourceSecurityGroupId": {
+                "Ref": "EcsInstanceSecurityGroup"
+            }
+        }
+    },
+    "EcsInstanceSecurityGroupIngressTcpEphemeral": {
+        "DependsOn": [
+            "EcsInstanceSecurityGroup"
+        ],
+        "Type": "AWS::EC2::SecurityGroupIngress",
+        "Properties": {
+            "GroupId": {
+                "Ref": "EcsInstanceSecurityGroup"
+            },
+            "IpProtocol": "tcp",
+            "FromPort": "49152",
+            "ToPort": "65535",
+            "SourceSecurityGroupId": {
+                "Ref": "EcsInstanceSecurityGroup"
+            }
+        }
+    },
     "EcsLoadBalancerSecurityGroup": {
         "Type": "AWS::EC2::SecurityGroup",
         "Properties": {
